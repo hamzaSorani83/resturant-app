@@ -1,4 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;400;700&display=swap');
+
+@layer components {
+  .Header {
+    @apply flex justify-between top-0 left-0 z-50 w-screen bg-primary p-3 px-4 md:p-6 md:px-12 h-4;
+  }
+  .Link {
+    @apply flex items-center gap-2
+  }
+  .LogoImg {
+    @apply w-10 object-cover
+  }
+  .LogoTxt {
+    @apply text-headingColor text-xl font-bold
+  }
+  .Nav {
+    @apply hidden md:flex items-center gap-8 ml-auto 
+  }
+  .NavItem {
+    @apply text-textColor hover:text-headingColor cursor-pointer transition-all ease-in-out
+  }
+  .ShoppingBasketParent {
+    @apply order-first md:order-none relative cursor-pointer flex justify-center items-center
+  }
+  .ShoppingBasketIcon {
+    @apply text-textColor text-2xl md:ml-8
+  }
+  .ShoppingBasketNumber {
+    @apply w-5 h-5 absolute -top-1 -right-2 rounded-full bg-cartNumBg flex items-center justify-center
+  }
+  .ShoppingBasketNumber p {
+    @apply text-sm text-white font-semibold
+  }
+  .Profile {
+    @apply relative
+  }
+  .Profile img {
+    @apply w-10 rounded-full ml-8 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer
+  }
+  .ProfileDropdown {
+    @apply w-40 bg-gray-50 z-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0
+  }
+  .ProfileDropdownItem {
+    @apply px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base
+  }
+  .Overlay {
+    @apply absolute left-0 top-0 bg-black/40 w-full h-full z-50 dark:bg-gray-900/50;
+  }
+}
+
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -27,7 +80,3 @@ a {
 li {
     list-style: none;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
