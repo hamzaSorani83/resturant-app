@@ -1,8 +1,11 @@
 import React from 'react'
+import { HomeContainer } from '../'
 
-const MainContainer = () => {
+const MainContainer: React.FC = () => {
   return (
-    <div>MainContainer</div>
+    <div className='MainContainer'>
+      <HomeContainer />
+    </div>
   )
 }
 

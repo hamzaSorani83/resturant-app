@@ -19,7 +19,7 @@ function App() {
         <Overlay  />
         {spinner}
         <Header />
-        <main className='p-8 w-full'>
+        <main className='py-4 px-12 w-full'>
           <Routes>
             <Route path='/' element={<MainContainer />} />
             <Route path='/createItem' element={<CreateContainer />} />

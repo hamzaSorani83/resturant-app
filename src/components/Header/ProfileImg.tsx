@@ -10,6 +10,8 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectUser, setUser } from '../../store/features/loginReducer';
 import { selectOverlay, setLoading, setOverlay } from '../../store/features/mainReducer';
 
+import { Nav } from '../';
+
 const ProfileImg = () => {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
@@ -39,34 +41,23 @@ const ProfileImg = () => {
     dispatch(setUser(null));
   };
   
+  let createItem = <></>;
+    if (user && user.email === "hamzasorani83@gmail.com") {
+      createItem = (
+          <Link to={"/createItem"}>
+            <p className="ProfileDropdownItem" onClick={() => setIsMenuHandler(false)}> New Item <MdAdd /> </p>
+          </Link>
+        );
+    }
+  
   return (
     <div className='Profile'  onClick={login}>
-    <motion.img
-      whileTap={{ scale: 0.6 }}
-      src={UserProfile}
-      alt="user profile"
-    />
+    <motion.img whileTap={{ scale: 0.6 }} src={UserProfile} alt="user profile" />
       {isMenu && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.6 }}
-          className="ProfileDropdown"
-        >
-          {user && user.email === "hamzasorani83@gmail.com" && (
-            <Link to={"/createItem"}>
-              <p
-                className="ProfileDropdownItem"
-                onClick={() => setIsMenuHandler(false)}>
-                New Item <MdAdd />
-              </p>
-            </Link>
-          )}
-          <p
-            className="ProfileDropdownItem"
-            onClick={logout}>
-            Logout <MdLogout />
-          </p>
+        <motion.div className="ProfileDropdown" initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.6 }}>
+          {createItem}
+          <Nav className="Nav-Col" />
+          <p className="ProfileDropdownItem" onClick={logout}> Logout <MdLogout /></p>
         </motion.div>
       )}
   </div>
